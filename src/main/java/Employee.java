@@ -6,6 +6,15 @@ public class Employee {
     private int absenceDays;
     private boolean isTeamLeader;
 
+    public Employee(String name, int yearsInCompany,int performancePoints, int completedProjects, int absenceDays, boolean isTeamLeader) {
+        setName(name);
+        setYearsInCompany(yearsInCompany);
+        setPerformancePoints(performancePoints);
+        setCompletedProjects(completedProjects);
+        setAbsenceDays(absenceDays);
+        setTeamLeader(isTeamLeader);
+    }
+
     public int getYearsInCompany() {
         return this.yearsInCompany;
     }
