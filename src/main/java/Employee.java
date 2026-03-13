@@ -2,6 +2,7 @@ public class Employee {
     private int yearsInCompany;
     private int performancePoints;
     private int completedProjects;
+    private int absenceDays;
 
     public int getYearsInCompany() {
         return this.yearsInCompany;
@@ -25,5 +26,13 @@ public class Employee {
 
     public void setCompletedProjects(int completedProjects) {
         this.completedProjects = completedProjects;
+    }
+
+    public int getAbsenceDays() {
+        return this.absenceDays;
+    }
+
+    public void setAbsenceDays(int absenceDays) {
+        this.absenceDays = absenceDays;
     }
 }

@@ -29,4 +29,10 @@ class EmployeeTest {
         assertEquals(2,this.employee.getCompletedProjects());
     }
 
+    @Test
+    void shouldReturnAbsenceDays() {
+        this.employee.setAbsenceDays(18);
+        assertEquals(18,this.employee.getAbsenceDays());
+    }
+
 }
