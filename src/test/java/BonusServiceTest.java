@@ -8,7 +8,7 @@ public class BonusServiceTest {
 
     @BeforeEach
     void setup() {
-        bs = new BonusService();
+        bs = new BonusService(500, 2000);
     }
 
     @Test
@@ -19,5 +19,10 @@ public class BonusServiceTest {
     @Test
     void shouldReturnMaxWhenBonusIsTooHigh() {
         assertEquals(2000, bs.applyRestrictions(2100));
+    }
+
+    @Test
+    void shouldReturnTheSameAmountIfInRange() {
+        assertEquals(1500, bs.applyRestrictions(1500));
     }
 }
