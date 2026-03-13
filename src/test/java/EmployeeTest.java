@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeTest {
     private Employee employee;
@@ -33,6 +34,12 @@ class EmployeeTest {
     void shouldReturnAbsenceDays() {
         this.employee.setAbsenceDays(18);
         assertEquals(18,this.employee.getAbsenceDays());
+    }
+
+    @Test
+    void shouldReturnTrueWhenEmployeeIsTeamLeader() {
+        this.employee.setTeamLeader(true);
+        assertTrue(this.employee.getIsTeamLeader());
     }
 
 }

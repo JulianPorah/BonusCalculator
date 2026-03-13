@@ -3,6 +3,7 @@ public class Employee {
     private int performancePoints;
     private int completedProjects;
     private int absenceDays;
+    private boolean isTeamLeader;
 
     public int getYearsInCompany() {
         return this.yearsInCompany;
@@ -34,5 +35,13 @@ public class Employee {
 
     public void setAbsenceDays(int absenceDays) {
         this.absenceDays = absenceDays;
+    }
+
+    public boolean getIsTeamLeader() {
+        return this.isTeamLeader;
+    }
+
+    public void setTeamLeader(boolean isTeamLeader) {
+        this.isTeamLeader = isTeamLeader;
     }
 }
