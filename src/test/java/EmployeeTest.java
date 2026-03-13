@@ -14,13 +14,19 @@ class EmployeeTest {
     @Test
     void shouldReturnYearsInCompany() {
         this.employee.setYearsInCompany(4);
-        assertEquals(4, employee.getYearsInCompany());
+        assertEquals(4, this.employee.getYearsInCompany());
     }
 
     @Test
     void shouldReturnPerformancePoints() {
         this.employee.setPerformancePoints(10);
-        assertEquals(10,employee.getPerformancePoints());
+        assertEquals(10,this.employee.getPerformancePoints());
+    }
+
+    @Test
+    void shouldReturnCompletedProjects() {
+        this.employee.setCompletedProjects(2);
+        assertEquals(2,this.employee.getCompletedProjects());
     }
 
 }
