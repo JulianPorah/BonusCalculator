@@ -1,4 +1,5 @@
 public class Employee {
+    private String name;
     private int yearsInCompany;
     private int performancePoints;
     private int completedProjects;
@@ -43,5 +44,13 @@ public class Employee {
 
     public void setTeamLeader(boolean isTeamLeader) {
         this.isTeamLeader = isTeamLeader;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

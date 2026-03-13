@@ -42,4 +42,10 @@ class EmployeeTest {
         assertTrue(this.employee.getIsTeamLeader());
     }
 
+    @Test
+    void shouldReturnName() {
+        this.employee.setName("Julian");
+        assertEquals("Julian",this.employee.getName());
+    }
+
 }
