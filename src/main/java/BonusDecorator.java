@@ -1,12 +1,12 @@
 abstract public class BonusDecorator implements Bonus{
     protected Bonus bonus;
 
-    BonusDecorator(Bonus bonus) {
+    public BonusDecorator(Bonus bonus) {
         this.bonus = bonus;
     }
 
     @Override
-    public void calculateBonus(Employee employee) {
-
+    public double calculateBonus(Employee employee) {
+        return this.bonus.calculateBonus(employee);
     }
 }

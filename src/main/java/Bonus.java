@@ -1,3 +1,3 @@
 public interface Bonus {
-    void calculateBonus(Employee employee);
+    double calculateBonus(Employee employee);
 }
