@@ -10,15 +10,6 @@ public class PerformanceBonus extends BonusDecorator {
 
         int score = employee.getPerformancePoints();
 
-        double factor;
-        if (score < 50) {
-            factor = 0.8;
-        } else if (score <= 80) {
-            factor = 1.0;
-        } else {
-            factor = 1.5;
-        }
-
-        return currentBonus * factor;
+        return currentBonus + score * 5.0;
     }
 }

@@ -4,55 +4,39 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PerformanceBonusTest {
-    private PerformanceBonus performanceBonus;
+    private PerformanceBonus pb;
     private BaseBonus base;
-
-    private Employee prepareEmployeeForPerformance(Integer performancePoints) {
-        return new Employee(
-                "Test",
-                2,
-                performancePoints,
-                2,
-                30,
-                false
-        );
-    }
 
     @BeforeEach
     void setUp() {
         this.base = new BaseBonus();
-        this.performanceBonus = new PerformanceBonus(this.base);
+        this.pb = new PerformanceBonus(this.base);
     }
 
     @Test
-    void shouldFactorForLessThan50Points() {
-        double performanceBonus = this.performanceBonus.calculateBonus(
-                prepareEmployeeForPerformance(49)
-        );
-        double baseBonus = this.base.calculateBonus(
-                prepareEmployeeForPerformance(49)
-        );
+    void shouldApplyBonusWithTenPoints() {
+        Employee julian = new Employee("Julian",4,10,2,18,true);
+        double baseBonus = this.base.calculateBonus(julian);
+        double withPerformanceBonus = this.pb.calculateBonus(julian);
+        double diff = withPerformanceBonus - baseBonus;
+        assertEquals(50.0, diff);
+    }
 
-        assertEquals(baseBonus * 0.8, performanceBonus);
-    }
     @Test
-    void shouldFactorForLessThanOrEqual80Points() {
-        double performanceBonus = this.performanceBonus.calculateBonus(
-                prepareEmployeeForPerformance(60)
-        );
-        double baseBonus = this.base.calculateBonus(
-                prepareEmployeeForPerformance(60)
-        );
-        assertEquals(baseBonus, performanceBonus);
+    void shouldApplyBonusTwentyPoints() {
+        Employee julian = new Employee("Julian",4,20,2,18,true);
+        double baseBonus = this.base.calculateBonus(julian);
+        double withPerformanceBonus = this.pb.calculateBonus(julian);
+        double diff = withPerformanceBonus - baseBonus;
+        assertEquals(100.0, diff);
     }
+
     @Test
-    void shouldFactorForOver80Points() {
-        double performanceBonus = this.performanceBonus.calculateBonus(
-                prepareEmployeeForPerformance(99)
-        );
-        double baseBonus = this.base.calculateBonus(
-                prepareEmployeeForPerformance(99)
-        );
-        assertEquals(baseBonus * 1.5, performanceBonus);
+    void shouldNotApplyBonus() {
+        Employee julian = new Employee("Julian",4,0,2,18,false);
+        double baseBonus = this.base.calculateBonus(julian);
+        double withPerformanceBonus = this.pb.calculateBonus(julian);
+        double diff = withPerformanceBonus - baseBonus;
+        assertEquals(0, diff);
     }
 }
